@@ -19,8 +19,45 @@ a {
   html {
     color-scheme: dark;
   }
+
   body {
     color: white;
     background: black;
   }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.nav {
+  background-color: #160A47;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.driftlogo {
+  font-size: 2rem;
+}
+
+.nav ul {
+  padding: 0 1rem;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  font-family: 'open sans', sans-serif;
+  font-weight: 500;
+}
+
+.nav Link {
+  color: inherit;
 }

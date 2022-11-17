@@ -1,5 +1,7 @@
-function HomePage() {
-    return <h1>Home</h1>
+function Registration() {
+    return (
+        <h1>Sign Up</h1>
+    )
 }
 
-export default HomePage;
+export default Registration;
