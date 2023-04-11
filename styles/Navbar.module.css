@@ -1,0 +1,31 @@
+.nav {
+    background-color: #160A47;
+    color: #EFD6E8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 2rem;
+    height: 100px;
+    font-size: x-large;
+}
+
+
+
+.nav ul {
+    padding: 0 1rem;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    font-family: 'open sans', sans-serif;
+
+}
+
+.nav Link {
+    color: inherit;
+}
+
+.footer {
+    background-color: #160A47;
+}
