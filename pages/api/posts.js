@@ -1,8 +1,8 @@
-import clientPromise from "../../lib/mongodb";
+import clientPromise from /lib/mongoDB.js;
 
 export default async function handler(req, res) {
     const client = await clientPromise;
-    const db = client.db("nextjs-mongodb-demo");
+    const db = client.db("drift");
     switch (req.method) {
         case "POST":
             let bodyObject = JSON.parse(req.body);
