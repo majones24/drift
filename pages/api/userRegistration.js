@@ -8,30 +8,36 @@ async function handler(req, res) {
     const client = await clientPromise;
     const db = client.db("drift");
     const users = db.collection("users");
+    console.log(users, req.method, "after users db connection");
 
     if (req.method === "POST") {
-        const checkExisting = await users.findOne({ email: email });
-        if (checkExisting) {
-            res.status(422).json({ message: 'User already exists' });
+        console.log("made it")
+        const checkDuplicates = await users.findOne({ email: email });
+        console.log(checkDuplicates)
+        if (checkDuplicates) {
+            console.log(checkDuplicates, "hello");
+            return res.status(400).send({ message: 'User already exists' });
+
             // client.close();
-            return;
         } else {
             const result = await users.insertOne(body);
+            // insertOne automatically creates a collection when inserting a document into a collection
             console.log(result);
             // client.close();
             res.status(200).json({ data: `${body.name} ${body.email} ${body.password}` })
             return;
         }
-
-    } else if (req.method === "GET") {
-        const user = await users.findOne({ email: email });
-        if (!user) {
-            return res.status(404).send({ message: "User Not found." });
-        }
-        res.status(200).json({ data: `${body.email}` })
-        console.log(req.body.email)
-        return;
     }
+
+    // } else if (req.method === "GET") {
+    //     const user = await users.findOne({ email: email });
+    //     if (!user) {
+    //         return res.status(404).send({ message: "User Not found." });
+    //     }
+    //     res.status(200).json({ data: `${body.email}` })
+    //     console.log(req.body.email)
+    //     return;
+    // }
 
 }
 
